@@ -9,6 +9,7 @@ app.get('/', (req, res) => {
     res.render('index', {userName: "Praj"});
     // res.send('Hi')
 });
+
 app.get('/users', (req, res)=>{
    res.send('User List');
 });
