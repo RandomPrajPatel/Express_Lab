@@ -7,28 +7,31 @@ router.get('/', (req, res) => {
     res.send('Word Home Page');
 });
 
-router.get('/word', async (req, res) => {
-    try {
-        const words = await getWordFromDictionary();
-        if (words) {
-            res.send(words);
-        } else {
-            res.status(500).send('Error reading dictionary');
-        }
-    } catch (err) {
-        res.status(500).send('Server error');
-    }
+router.get('/wotd', async (req, res) => {
+    let wordArray = await getWordFromDictionary();
+    let [word, part, definition] = wordArray;
+    res.render('wotd', { word: word, part: part, definition: definition });
 });
-router.get('allwords', (req, res)=>{
 
-});
-const getWordFromDictionary = async () => {
+let getWordFromDictionary = async () => {
     try {
-        const data = await readFile('resources/allwords.txt');
+        const data = await readFile('resources/allwords.txt', 'utf8');
+
         let lines = data.split('\n');
+
+        let randomNumber = parseInt(Math.random() * lines.length);
+
+        let randomLine = lines[randomNumber];
+
+        let wordArray = randomLine.split('\t');
+
+        console.log(wordArray);
+
+        return wordArray;
+
     } catch (err) {
-        console.error(err);
-        return null;
+        console.log("there was an error reading the file:", err);
+        return ["error", "error", "error"]; 
     }
 };
 

@@ -9,15 +9,12 @@
 <body>
     <h1>Welcome to my websites</h1>
     <p>Please stay and look around</p>
-    <p>hello <%= locals.userName ?? 'New User!' %></p>
-    
-    if(locals.UserName==="Praj"){
-        console.log("hi George!");
-    }
-     <p><img src="book.png" alt="stack of magic book"></p>
+    <p>hello <%= locals.userName ?? 'New User!' %>
+    </p>
+    <%for(let i=0; i<B; i++){ %>
+        <p><img width="200" src="book.png" alt="stack of magic book"></p>
 
-   <% for(let i=0; i<B; i++ %>
-
-   
+        <% } %>
 </body>
+
 </html>
