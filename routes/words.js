@@ -12,7 +12,9 @@ router.get('/wotd', async (req, res) => {
     let [word, part, definition] = wordArray;
     res.render('wotd', { word: word, part: part, definition: definition });
 });
+router.get ('allwords', (req,res )=>{
 
+});
 let getWordFromDictionary = async () => {
     try {
         const data = await readFile('resources/allwords.txt', 'utf8');
