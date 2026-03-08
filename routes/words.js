@@ -31,7 +31,7 @@ let getWordFromDictionary = async () => {
         return ["error", "error", "error"];
     }
 };
-
+  
 let getAllWords = async () => {
     try {
         const data = await readFile('resources/allwords.txt', 'utf8');

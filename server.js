@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express(); //Calling express as a function sets up server
+const app = express(); //Calling express as a function sets up server 
 const userRouter = require('./routes/users');
 const wordRouter = require('./routes/words');
 app.set('view engine', 'ejs');
@@ -14,4 +14,4 @@ app.get('/',
     // res.send('Hi')
 });
 
-app.listen(3030); //Tell our app to listen for requests
+app.listen(3030); //Tell our app to listen for requests 
